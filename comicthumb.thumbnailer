@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=comicthumb
+Exec=comicthumb %i %o %s
+MimeType=application/vnd.comicbook-rar;application/vnd.comicbook+zip;application/x-cbr;application/x-cbt;application/x-cbz;application/x-ext-cbr;application/x-ext-cbt;application/x-ext-cbz;
