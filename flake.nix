@@ -19,7 +19,7 @@
     in {
       overlays.default = final: prev: { comicthumb = final.callPackage ./package.nix { }; };
       packages = forEachSystem ( system: {
-        lychee-slicer = pkgsBySystem.${system}.comicthumb;
+        comicthumb = pkgsBySystem.${system}.comicthumb;
         default = pkgsBySystem.${system}.comicthumb;
       });
     };
