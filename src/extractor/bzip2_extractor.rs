@@ -11,8 +11,10 @@ pub struct Bzip2Extractor {
 }
 
 impl Bzip2Extractor {
-    pub fn new(src: &String) -> Self {
-        Bzip2Extractor { src: src.clone() }
+    pub fn new(src: &str) -> Self {
+        Bzip2Extractor {
+            src: src.to_string(),
+        }
     }
 }
 

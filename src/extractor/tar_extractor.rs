@@ -9,8 +9,10 @@ pub struct TarExtractor {
 }
 
 impl TarExtractor {
-    pub fn new(src: &String) -> Self {
-        TarExtractor { src: src.clone() }
+    pub fn new(src: &str) -> Self {
+        TarExtractor {
+            src: src.to_string(),
+        }
     }
 }
 

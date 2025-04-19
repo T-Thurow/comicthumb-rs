@@ -17,7 +17,7 @@ pub trait Extractor {
     fn extract(&self, chosen: &str) -> Result<Vec<u8>, std::io::Error>;
 }
 
-pub fn get_extractor(src: &String) -> std::io::Result<Box<dyn Extractor>> {
+pub fn get_extractor(src: &str) -> std::io::Result<Box<dyn Extractor>> {
     let archive_type = archive_mime_type(&src)?;
     match archive_type {
         ZipType::ZIP => Ok(Box::new(ZipExtractor::new(src))),

@@ -11,8 +11,10 @@ pub struct GzipExtractor {
 }
 
 impl GzipExtractor {
-    pub fn new(src: &String) -> Self {
-        GzipExtractor { src: src.clone() }
+    pub fn new(src: &str) -> Self {
+        GzipExtractor {
+            src: src.to_string(),
+        }
     }
 }
 

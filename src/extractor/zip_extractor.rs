@@ -9,8 +9,10 @@ pub struct ZipExtractor {
 }
 
 impl ZipExtractor {
-    pub fn new(src: &String) -> Self {
-        ZipExtractor { src: src.clone() }
+    pub fn new(src: &str) -> Self {
+        ZipExtractor {
+            src: src.to_string(),
+        }
     }
 }
 

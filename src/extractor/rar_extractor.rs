@@ -7,8 +7,10 @@ pub struct RarExtractor {
 }
 
 impl RarExtractor {
-    pub fn new(src: &String) -> Self {
-        RarExtractor { src: src.clone() }
+    pub fn new(src: &str) -> Self {
+        RarExtractor {
+            src: src.to_string(),
+        }
     }
 }
 
