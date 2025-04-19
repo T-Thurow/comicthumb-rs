@@ -17,10 +17,10 @@
         }
       );
     in {
-      overlays.default = final: prev: { comicthumb = final.callPackage ./package.nix { }; };
+      overlays.default = final: prev: { comicthumb-rs = final.callPackage ./package.nix { }; };
       packages = forEachSystem ( system: {
-        comicthumb = pkgsBySystem.${system}.comicthumb;
-        default = pkgsBySystem.${system}.comicthumb;
+        comicthumb-rs = pkgsBySystem.${system}.comicthumb-rs;
+        default = pkgsBySystem.${system}.comicthumb-rs;
       });
     };
 }
