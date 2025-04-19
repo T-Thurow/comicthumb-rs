@@ -16,8 +16,15 @@ fn main() -> ExitCode {
         return ExitCode::FAILURE;
     }
 
-    let in_path = args.get(1).expect("Invalid <input archive> argument");
-    let out_path = args.get(2).expect("Invalid <output path> argument");
+    let in_path = match args.get(1) {
+        Some(path) => path.trim_matches('"'),
+        None => panic!("Invalid <input archive> argument"),
+    };
+
+    let out_path = match args.get(2) {
+        Some(path) => path.trim_matches('"'),
+        None => panic!("Invalid <output path> argument"),
+    };
 
     let size = match args.get(3) {
         Some(s) => s.parse().expect("Invalid [size] argument"),
