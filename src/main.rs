@@ -10,17 +10,18 @@ const DEFAULT_SIZE: u32 = 128;
 
 fn main() -> ExitCode {
     let args = env::args().collect::<Vec<_>>();
+
     if args.len() < 3 {
         eprintln!("Usage: <input archive> <output path> [size]");
         return ExitCode::FAILURE;
     }
 
-    let in_path = &args[1];
-    let out_path = &args[2];
-    let size = if args.len() == 4 {
-        args[3].parse().unwrap_or(DEFAULT_SIZE)
-    } else {
-        DEFAULT_SIZE
+    let in_path = args.get(1).expect("Invalid <input archive> argument");
+    let out_path = args.get(2).expect("Invalid <output path> argument");
+
+    let size = match args.get(3) {
+        Some(s) => s.parse().expect("Invalid [size] argument"),
+        None => DEFAULT_SIZE,
     };
 
     let extractor = get_extractor(in_path).expect("Could not create extractor");
