@@ -1,5 +1,5 @@
 use alphanumeric_sort::sort_str_slice;
-use image::DynamicImage;
+use image::{imageops::FilterType, DynamicImage};
 use regex::Regex;
 
 pub fn guess_cover(files: &Vec<String>) -> Option<String> {
@@ -41,5 +41,5 @@ pub fn generate_tumbnail(im: &DynamicImage, size: u32) -> DynamicImage {
         (size * im.width() / im.height(), size)
     };
 
-    im.thumbnail(x, y)
+    im.resize(x, y, FilterType::Lanczos3)
 }
